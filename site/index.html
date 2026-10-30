@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intel Sentiment Lens</title>
+<link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <strong class="brand">Intel Sentiment Lens</strong>
+    <nav>
+      <a href="#overview">Overview</a><a href="#pv">Search product</a><a href="#products">Products</a><a href="#trends">Trends</a>
+      <a href="#aspects">Aspects</a><a href="#keywords">Keywords</a><a href="#model">Model</a>
+      <a href="#recs">Recommendations</a><a href="#try">Try it</a><a href="#compare">Compare</a>
+      <button class="chip present-btn" id="presentBtn">▶ Present</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="overview">
+    <h1>What do people <em>really</em> say about Intel products?</h1>
+    <p class="lead">Sentiment, trends, aspects and improvement priorities across CPUs, GPUs, storage and networking, built from real Amazon customer reviews.</p>
+    <div class="kpis" id="kpis"></div>
+    <div class="two donuts">
+      <div class="card"><h3>Overall sentiment</h3><div class="dwrap"><canvas id="donutSent"></canvas></div></div>
+      <div class="card"><h3>Reviews by category</h3><div class="dwrap"><canvas id="donutSrc"></canvas></div></div>
+    </div>
+  </section>
+
+  <section id="pv">
+    <h2>Search a product</h2>
+    <div class="filters"><input id="pvSearch" type="search" placeholder="Search products…" autocomplete="off" style="font-size:16px;padding:10px 14px"></div>
+    <div class="chips" id="pvResults"></div>
+    <div id="pvEmpty" class="note" hidden>No product matches your search.</div>
+    <div id="pvDetail">
+      <div class="filters"><span class="chips" id="pvSent"></span></div>
+      <div class="two pv-grid">
+        <div class="card"><div id="pvImg" class="pv-img"></div><div id="pvInfo"></div></div>
+        <div class="card pv-rcard"><div class="pv-rin"><h3>Reviews</h3><p class="note" id="pvCount"></p><div id="pvReviews" class="pv-revs"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <h2>Sentiment by product</h2>
+    <div class="chips" id="catChips"></div>
+    <div class="pcards" id="productCards"></div>
+    <div class="card"><canvas id="productChart" height="110"></canvas></div>
+  </section>
+
+  <section id="trends">
+    <h2>Sentiment over time</h2>
+    <p class="sub">Net sentiment per quarter (% positive minus % negative).</p>
+    <div class="chips" id="trendMode"></div>
+    <div class="card"><canvas id="trendChart" height="110"></canvas></div>
+    <p class="note" id="trendNote"></p>
+  </section>
+
+  <section id="compare">
+    <h2>Compare two products</h2>
+    <p class="sub">Pick any two products. Higher is better on every axis.</p>
+    <div class="filters"><select id="cmpA"></select><span class="vs">vs</span><select id="cmpB"></select><button class="chip" id="cmpSwap">⇄ Swap</button></div>
+    <div class="two"><div class="card"><canvas id="cmpChart" height="260"></canvas></div><div class="card" id="cmpVerdict"></div></div>
+  </section>
+
+  <section id="aspects">
+    <h2>What drives sentiment: aspect analysis</h2>
+    <p class="sub">Bars show the sentiment split of reviews mentioning each aspect, most negative first.</p>
+    <div class="chips" id="aspectChips"></div>
+    <div class="card"><canvas id="aspectChart" height="110"></canvas></div>
+    <h3 class="hm-title">Pain-point heatmap: % negative by aspect and category</h3>
+    <div class="card scroll"><div id="heatmap"></div></div>
+  </section>
+
+  <section id="keywords">
+    <h2>Keywords by sentiment</h2>
+    <div class="chips" id="kwChips"></div>
+    <div class="two">
+      <div class="card"><h3 class="pos">Positive</h3><div class="cloud" id="cloudPos"></div></div>
+      <div class="card"><h3 class="neg">Negative</h3><div class="cloud" id="cloudNeg"></div></div>
+    </div>
+  </section>
+
+  <section id="model">
+    <h2>Model performance</h2>
+    <div class="two">
+      <div class="card"><div id="metricTiles" class="tiles"></div><table id="classTable"></table></div>
+      <div class="card"><h3>Confusion matrix</h3><div id="confusion"></div><p class="note">Rows: actual. Columns: predicted.</p></div>
+    </div>
+  </section>
+
+  <section id="recs">
+    <h2>Recommended improvements for future products</h2>
+    <p class="sub">Ranked by negative share and volume.</p>
+    <div class="chips" id="recChips"></div>
+    <div id="recList" class="recs"></div>
+  </section>
+
+  <section id="try">
+    <h2>Try the analyzer</h2>
+    <p class="sub">Type or paste a review to see its sentiment.</p>
+    <div class="card">
+      <div class="chips"><span class="note" style="align-self:center">Examples:</span><button class="chip" data-ex="0">Positive</button><button class="chip" data-ex="1">Negative</button><button class="chip" data-ex="2">Mixed</button></div>
+      <textarea id="tryInput" rows="3" placeholder="e.g. Runs hot and the drivers are buggy, but performance is great for the price."></textarea>
+      <div id="tryOut" class="tryout"></div>
+    </div>
+    <h3 style="margin-top:22px">Write a review for a product</h3>
+    <div class="card">
+      <div class="filters"><select id="urProd"></select>
+        <select id="urRating"><option value="5">5 ★</option><option value="4">4 ★</option><option value="3">3 ★</option><option value="2">2 ★</option><option value="1">1 ★</option></select></div>
+      <textarea id="urText" rows="3" placeholder="Share your experience with this product…"></textarea>
+      <p><button class="chip" id="urSubmit">Submit review</button> <span class="note" id="urMsg"></span></p>
+      <p class="note">Your reviews are saved in this browser only and appear under the product in "Search a product".</p>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>Data and method</h2>
+    <div class="card prose">
+      <ol>
+        <li><b>Collect:</b> Amazon Reviews 2023 export (Intel, AMD and NVIDIA files, about 650,000 reviews). Reviews are matched to a product by the Amazon listing title; whole laptops, PCs and bundles are excluded so reviews describe the part itself.</li>
+        <li><b>Clean and label:</b> normalise text; 4–5★ positive, 3★ neutral, 1–2★ negative.</li>
+        <li><b>Model:</b> lexicon + negation baseline here. Swap in TF-IDF + logistic regression or a fine-tuned transformer and compare in the same metrics table.</li>
+        <li><b>Analyse:</b> aspect analysis, quarterly trends, keyword extraction, improvement ranking, repeated on every product category.</li>
+      </ol>
+      <p>Downloads: <a href="train.csv">train.csv</a> · <a href="test.csv">test.csv</a> (80/20 split). Regenerate with <code>python3 pipeline/build_real.py</code>.</p>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Built for Problem Statement 11: Intel Products Sentiment Analysis from Online Reviews.</footer>
+
+<div class="modal" id="modal" hidden><div class="modal-box"><button class="x" id="modalX" aria-label="Close">✕</button><div id="modalBody"></div></div></div>
+<div class="pbar" id="pbar" hidden><button class="chip" id="pPrev">← Prev</button><span id="pDots"></span><button class="chip" id="pNext">Next →</button><button class="chip" id="pExit">✕ Exit</button></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="data.js?v=3"></script>
+<script src="competitors.js?v=4"></script>
+<script src="app.js?v=9"></script>
+<script src="product_info.js?v=8"></script>
+<script src="product_explorer.js?v=7"></script>
+</body>
+</html>

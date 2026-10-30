@@ -1,0 +1,135 @@
+{
+ "Core i9-13900K": {
+  "src": "img/core-i9-13900k-box.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Core i7-12700K": {
+  "src": "img/core-i7-12700k.jpg",
+  "credit": "4300streetcar",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_Core_i7_12700K.jpg",
+  "rep": false
+ },
+ "Core i5-13600K": {
+  "src": "img/core-i5-13600k.jpg",
+  "credit": "4300streetcar",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_Core_i5_13600K.jpg",
+  "rep": false
+ },
+ "Core i7-13700K": {
+  "src": "img/core-i7-13700k.jpg",
+  "credit": "4300streetcar",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_Core_i7_13700K.jpg",
+  "rep": false
+ },
+ "Arc A770": {
+  "src": "img/arc-a770.jpg",
+  "credit": "Telaneo",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_Arc_A770_front.jpg",
+  "rep": false
+ },
+ "Arc B580": {
+  "src": "img/arc-b580-official.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Wi-Fi 6E AX211": {
+  "src": "img/wifi-ax211.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Wi-Fi 7 BE200": {
+  "src": "img/wifi-be200.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Ethernet I225-V": {
+  "src": "img/ethernet-i225v.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Ethernet I226-V": {
+  "src": "img/ethernet-i226v.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "SSD 670p": {
+  "credit": "\u30ac\u30e9\u30d1\u30ea",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:M2_SATA_M2_NVMe_compare.png",
+  "src": "img/intel-m2-ssd.jpg",
+  "rep": true
+ },
+ "SSD 660p": {
+  "credit": "\u30ac\u30e9\u30d1\u30ea",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:M2_SATA_M2_NVMe_compare.png",
+  "src": "img/intel-m2-ssd.jpg",
+  "rep": true
+ },
+ "Optane SSD 905P": {
+  "src": "img/optane-905p.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Arc A750": {
+  "src": "img/arc-a750.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Arc B570": {
+  "src": "img/arc-b570.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Core i9-12900K": {
+  "src": "img/core-i9-12900k.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Core i5-12400F": {
+  "src": "img/core-i5-12400f.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Core Ultra 7 155H": {
+  "src": "img/core-ultra-7-155h.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ },
+ "Core Ultra 9 285K": {
+  "src": "img/core-ultra-9-285k.jpg",
+  "credit": "",
+  "license": "",
+  "page": "",
+  "rep": false
+ }
+}
